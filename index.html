@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotional Poem</title>
+    <style>
+        body {
+            background-image: url('background.jpg'); /* Ensure you have a file named background.jpg in the same directory */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+        .poem-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" src="music.mp3" autoplay loop></audio>
+    <div class="poem-container">
+        <h1>Will You Stay?</h1>
+        <p>You say you love the stars, but you never stay up to admire their lonely glow.<br>
+        You say you love the rain, but you run for shelter when it starts to pour.<br>
+        You say you love the wind, but you close your doors when it howls too loud.<br>
+        You say you love the fire, but you never dare to touch its warmth.<br>
+        You say you love the ocean, but you refuse to dive into its endless depths.<br>
+        You say you love the sun, but you hide in the shade when it shines too bright.<br><br>
+        And now, you say you love me…<br>
+        But tell me, will you stay when I storm?<br>
+        Will you hold me when I burn?<br>
+        Will you drown with me in the deepest parts of my soul?<br>
+        Or will you, like always, find a reason to run?</p>
+    </div>
+    
+    <script>
+        window.addEventListener('load', () => {
+            let audio = document.getElementById('bg-music');
+            audio.play().catch(error => console.log('Autoplay blocked by browser:', error));
+        });
+    </script>
+</body>
+</html>
