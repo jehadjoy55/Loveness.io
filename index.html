@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,10 +36,25 @@
             font-size: 18px;
             line-height: 1.6;
         }
+        #interaction-prompt {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
-    <audio id="bg-music" src="music.mp3" autoplay loop></audio>
+    <!-- Audio element with muted autoplay -->
+    <audio id="bg-music" src="music.mp3" autoplay muted loop></audio>
     <div class="poem-container">
         <h1>Will You Stay?</h1>
         <p>You say you love the stars, but you never stay up to admire their lonely glow.<br>
@@ -53,11 +69,30 @@
         Will you drown with me in the deepest parts of my soul?<br>
         Or will you, like always, find a reason to run?</p>
     </div>
-    
+
+    <!-- Interaction Prompt -->
+    <div id="interaction-prompt">
+        Click anywhere to enable sound.
+    </div>
+   
     <script>
+        // Unmute the audio and hide the prompt after user interaction
+        window.addEventListener('click', () => {
+            const audio = document.getElementById('bg-music');
+            const prompt = document.getElementById('interaction-prompt');
+
+            if (audio.muted) {
+                audio.muted = false; // Unmute the audio
+                prompt.style.display = 'none'; // Hide the prompt
+            }
+        });
+
+        // Attempt to autoplay the audio (muted) on page load
         window.addEventListener('load', () => {
-            let audio = document.getElementById('bg-music');
-            audio.play().catch(error => console.log('Autoplay blocked by browser:', error));
+            const audio = document.getElementById('bg-music');
+            audio.play().catch(error => {
+                console.log('Autoplay blocked by browser:', error);
+            });
         });
     </script>
 </body>
